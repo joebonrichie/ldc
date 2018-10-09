@@ -608,17 +608,6 @@ if(MSVC)
     configure_file(vcbuild/x86.bat     ${PROJECT_BINARY_DIR}/bin/x86.bat     COPYONLY)
 endif()
 
-if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
-    find_package(bash-completion QUIET)
-    if(NOT BASH_COMPLETION_FOUND)
-        set(BASH_COMPLETION_COMPLETIONSDIR "${CONF_INST_DIR}/bash_completion.d")
-        if(LINUX_DISTRIBUTION_IS_GENTOO)
-            set(BASH_COMPLETION_COMPLETIONSDIR "/usr/share/bash-completion")
-        endif()
-    endif()
-    install(DIRECTORY bash_completion.d/ DESTINATION ${BASH_COMPLETION_COMPLETIONSDIR})
-endif()
-
 #
 # Packaging
 #
